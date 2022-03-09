@@ -43,12 +43,12 @@ class _InstructionPageState extends State<InstructionPage> {
         ),
       ),
       instruction:
-          "First you'll see a quick flash of some red and blue rectangles. Then you'll see a second scene in which one of the red rectangles may have rotated. Your job will be to note any such change.",
+          "First, you'll see a quick flash of some red and blue rectangles. Then you'll see a second scene in which one of the red rectangles may have rotated. Your job will be to note any such change.",
     ),
     InstructionComponent(
         upperContent: Container(),
         instruction:
-            "You'll do 4 unscored practice tests, then 80 scored tests.")
+            "You will first do 4 unscored practice tests and then 80 scored tests.")
   ];
 
   @override

@@ -15,8 +15,8 @@ class _InstructionDescriptionState extends State<InstructionDescription> {
   Color iconColorRight = Color.fromARGB(255, 112, 112, 112);
   Color iconColorLeft = Color.fromARGB(255, 112, 112, 112);
   List<String> instruction = [
-    "This test measures how easily you switch between tasks. You will be asked to determine whether a letter is a vowel or a consonant, or whether a number is odd or even. Sometimes you will be asked to focus on the letter, and sometimes on the number.",
-    "You will see the word LETTER or NUMBER, which tells you which to focus on, then a letter-number pair. If the word was LETTER, Click the left button to indicate a vowel and the right for a consonant. If the word was NUMBER, click the left button to indicate odd, and the right for even. You can also use the left and right arrow keys on your keyboard.",
+    "This test measures how easily you switch between tasks. You will be asked to determine whether a letter is a vowel or a consonant, or alternately, whether a number is odd or even. Sometimes you will be asked to focus on the letter, and sometimes on the number.",
+    "You will see the word LETTER or NUMBER, which tells you which to focus on, then a letter-number pair. If the word was LETTER, click the left button to indicate a vowel or the right for a consonant. If the word was NUMBER, click the left button to indicate odd or the right for even. You can also use the left and right arrow keys on your keyboard.",
     "You will first do 6 unscored practice tests and then 80 scored tests."
   ];
 

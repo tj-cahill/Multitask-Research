@@ -142,7 +142,7 @@ class _InstructionContentState extends State<InstructionContent> {
               ? Row(
                   children: <Widget>[
                     Text(
-                      "The next test starts immediately",
+                      "The next test starts immediately.",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 15,
