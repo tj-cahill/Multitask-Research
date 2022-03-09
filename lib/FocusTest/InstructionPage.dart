@@ -149,7 +149,7 @@ class _InstructionPageState extends State<InstructionPage> {
                                   )))),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 200),
+                      padding: EdgeInsets.only(top: 32),
                     ),
                   ],
                 )),
