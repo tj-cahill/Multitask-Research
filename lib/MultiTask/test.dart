@@ -4,6 +4,7 @@ import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
 import 'package:MultitaskResearch/MultiTask/end.dart';
 import 'package:MultitaskResearch/MultiTask/randomAlgo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -315,8 +316,8 @@ class _TestState extends State<Test> {
     return Scaffold(
         body: RawKeyboardListener(
             focusNode: focusNode,
-            onKey: (value) {
-              if (value.data.keyLabel == "ArrowLeft") {
+            onKey: (RawKeyEvent event) {
+              if (event.data.logicalKey == LogicalKeyboardKey.arrowLeft) {
                 setState(() {
                   isLeftButtonClicked = true;
                   timer4 = Timer(const Duration(milliseconds: 200), () {
@@ -332,7 +333,7 @@ class _TestState extends State<Test> {
                 });
               }
 
-              if (value.data.keyLabel == "ArrowRight") {
+              if (event.data.logicalKey == LogicalKeyboardKey.arrowRight) {
                 setState(() {
                   isRightButtonClicked = true;
                   timer4 = Timer(const Duration(milliseconds: 200), () {
