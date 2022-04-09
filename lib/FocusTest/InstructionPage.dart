@@ -35,11 +35,11 @@ class _InstructionPageState extends State<InstructionPage> {
     ),
     InstructionComponent(
       upperContent: Container(
-        // height: 150,
-        width: 655,
+        height: 425,
+        width: 550,
         child: Image.asset(
           "assets/second.png",
-          fit: BoxFit.cover,
+          fit: BoxFit.scaleDown,
         ),
       ),
       instruction:
@@ -53,8 +53,8 @@ class _InstructionPageState extends State<InstructionPage> {
 
   @override
   Widget build(BuildContext context) {
-    widthRatio = MediaQuery.of(context).size.width / 768;
-    heightRatio = MediaQuery.of(context).size.height / 1024;
+    widthRatio = MediaQuery.of(context).size.width / 1024;
+    heightRatio = MediaQuery.of(context).size.height / 768;
     return Scaffold(
         body:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -137,7 +137,8 @@ class _InstructionPageState extends State<InstructionPage> {
                                       )))),
                         )),
                     Padding(
-                        padding: EdgeInsets.only(top: 100),
+                        padding:
+                            EdgeInsets.only(top: currentLevel != 2 ? 100 : 0),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[levels[currentLevel - 1]])),
@@ -150,10 +151,7 @@ class _InstructionPageState extends State<InstructionPage> {
                       },
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 25),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 32),
+                      padding: EdgeInsets.only(top: 57),
                     ),
                   ],
                 )),
