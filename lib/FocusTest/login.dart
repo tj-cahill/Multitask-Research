@@ -64,6 +64,10 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
     );
   }
 
+  void goFullScreen() {
+    document.documentElement.requestFullscreen();
+  }
+
   Widget _showViewportAlert() {
     if (!_viewportOK) {
       return new Container(
@@ -133,6 +137,8 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
     // print('The user wants to login with $_id');
 
     if (_id.isNotEmpty && _viewportOK) {
+      // goFullScreen();
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
