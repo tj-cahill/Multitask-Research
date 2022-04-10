@@ -36,7 +36,7 @@
 
 # Web related
 lib/generated_plugin_registrant.dart
-.firebase/hosting.*.cache
+.firebase/
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
@@ -45,5 +45,3 @@ lib/generated_plugin_registrant.dart
 KEYS.dart
 .now
 node_modules/
-
-
