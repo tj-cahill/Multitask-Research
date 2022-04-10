@@ -417,7 +417,7 @@ class _TestState extends State<Test> {
                                 child: Text(
                                   widget.isUnscored
                                       ? "Practice Task ${currentLevel == 7 ? 6 : currentLevel} of 6"
-                                      : "Task $currentLevel of $totalLevels",
+                                      : '', //"Task $currentLevel of $totalLevels",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 18, 18, 18),

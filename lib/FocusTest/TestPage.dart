@@ -111,16 +111,20 @@ class _TestPageState extends State<TestPage> {
                       height: 20,
                       color: Color.fromARGB(255, 240, 244, 244),
                       child: Text(
-                        widget.title + " $currentLevel of ${data.length}",
+                        widget.title != "Test"
+                            ? widget.title + " $currentLevel of ${data.length}"
+                            : '',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromARGB(255, 18, 18, 18),
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    LinearProgressIndicator(
-                      value: currentLevel / data.length,
-                    ),
+                    widget.title != "Test"
+                        ? LinearProgressIndicator(
+                            value: currentLevel / data.length,
+                          )
+                        : Container(),
                     Padding(
                         padding: EdgeInsets.only(
                             top: MediaQuery.of(context).size.height >= 1080
