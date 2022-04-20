@@ -9,6 +9,14 @@ exports.buildFocusHeader = () => {
         'AvgTimeR',
         'AvgTimeNR',
         'SwitchCost',
+        'Distractor0_R_Tally',
+        'Distractor2_R_Tally',
+        'Distractor4_R_Tally',
+        'Distractor6_R_Tally',
+        'Distractor0_NR_Tally',
+        'Distractor2_NR_Tally',
+        'Distractor4_NR_Tally',
+        'Distractor6_NR_Tally',
         'Total_FalseAlarm',
         'Total_Miss',
         'Total_CorrectRejection',
@@ -45,6 +53,14 @@ exports.buildFocusData = (input) => {
         // Define aggregate variables here if necessary
         let TotalTimeR = [];
         let TotalTimeNR = [];
+        let Distractor0_R_Tally = 0;
+        let Distractor2_R_Tally = 0;
+        let Distractor4_R_Tally = 0;
+        let Distractor6_R_Tally = 0;
+        let Distractor0_NR_Tally = 0;
+        let Distractor2_NR_Tally = 0;
+        let Distractor4_NR_Tally = 0;
+        let Distractor6_NR_Tally = 0;
         let Total_FalseAlarm = 0;
         let Total_Miss = 0;
         let Total_CorrectRejection = 0;
@@ -73,6 +89,22 @@ exports.buildFocusData = (input) => {
                 TotalTimeNR.push(subRes.timeCost);
             }
 
+            // Increment tallies based on number of distractors
+            switch (subRes.numberOfBlueRectangles) {
+                case 0:
+                    subRes.isAnyRedTargetRotated ? Distractor0_R_Tally++ : Distractor0_NR_Tally++;
+                    break;
+                case 2:
+                    subRes.isAnyRedTargetRotated ? Distractor2_R_Tally++ : Distractor2_NR_Tally++;
+                    break;
+                case 4:
+                    subRes.isAnyRedTargetRotated ? Distractor4_R_Tally++ : Distractor4_NR_Tally++;
+                    break;
+                case 6:
+                    subRes.isAnyRedTargetRotated ? Distractor6_R_Tally++ : Distractor6_NR_Tally++;
+                    break;
+            }
+
             // Increment counter based on correctness of user choice
             if (!subRes.isAnyRedTargetRotated && !subRes.userChoice) {
                 Total_FalseAlarm++;
@@ -93,6 +125,14 @@ exports.buildFocusData = (input) => {
         str += AvgTimeR + ',';
         str += AvgTimeNR + ',';
         str += SwitchCost + ',';
+        str += Distractor0_R_Tally + ',';
+        str += Distractor2_R_Tally + ',';
+        str += Distractor4_R_Tally + ',';
+        str += Distractor6_R_Tally + ',';
+        str += Distractor0_NR_Tally + ',';
+        str += Distractor2_NR_Tally + ',';
+        str += Distractor4_NR_Tally + ',';
+        str += Distractor6_NR_Tally + ',';
         str += Total_FalseAlarm + ',';
         str += Total_Miss + ',';
         str += Total_CorrectRejection + ',';
