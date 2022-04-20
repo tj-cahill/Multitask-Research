@@ -8,7 +8,11 @@ exports.buildFocusHeader = () => {
     [
         'AvgTimeR',
         'AvgTimeNR',
-        'SwitchCost'
+        'SwitchCost',
+        'Total_FalseAlarm',
+        'Total_Miss',
+        'Total_CorrectRejection',
+        'Total_Hit'
     ];
 
     for (let i = 0; i < practiceRuns; i++) {
@@ -41,6 +45,10 @@ exports.buildFocusData = (input) => {
         // Define aggregate variables here if necessary
         let TotalTimeR = [];
         let TotalTimeNR = [];
+        let Total_FalseAlarm = 0;
+        let Total_Miss = 0;
+        let Total_CorrectRejection = 0;
+        let Total_Hit = 0;
 
         str += e.id + ',';
         str += e.test_time + ',';
@@ -58,21 +66,37 @@ exports.buildFocusData = (input) => {
             str += subRes.userChoice + ',';
             str += subRes.timeCost + ',';
 
+            // Add time cost to appropriate tally
             if (subRes.isAnyRedTargetRotated) {
                 TotalTimeR.push(subRes.timeCost);
             } else {
                 TotalTimeNR.push(subRes.timeCost);
+            }
+
+            // Increment counter based on correctness of user choice
+            if (!subRes.isAnyRedTargetRotated && !subRes.userChoice) {
+                Total_FalseAlarm++;
+            } else if (subRes.isAnyRedTargetRotated && !subRes.userChoice) {
+                Total_Miss++;
+            } else if (!subRes.isAnyRedTargetRotated && subRes.userChoice) {
+                Total_CorrectRejection++;
+            } else if (subRes.isAnyRedTargetRotated && subRes.userChoice) {
+                Total_Hit++;
             }
         });
 
         // Calculate and add aggregate variables here if necessary
         let AvgTimeR = calculateAvg(TotalTimeR);
         let AvgTimeNR = calculateAvg(TotalTimeNR);
-        let SwitchCost = AvgTimeR - AvgTimeNR;
+        let SwitchCost = Math.abs(AvgTimeR - AvgTimeNR);
 
         str += AvgTimeR + ',';
         str += AvgTimeNR + ',';
         str += SwitchCost + ',';
+        str += Total_FalseAlarm + ',';
+        str += Total_Miss + ',';
+        str += Total_CorrectRejection + ',';
+        str += Total_Hit + ',';
 
         str += '\n';
     });
