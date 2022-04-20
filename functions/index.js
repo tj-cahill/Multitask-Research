@@ -8,11 +8,11 @@ const { buildMultitaskHeader, buildMultitaskData } = require('./helper_multitask
 const { buildFocusHeader, buildFocusData } = require('./helper_testfocus');
 admin.initializeApp(functions.config().firebase);
 
-exports.csvJsonReport = functions.https.onRequest((request, response) => {
+exports.csvJsonReport_multitask = functions.https.onRequest((request, response) => {
     response.set('Access-Control-Allow-Origin', '*');
     const db = admin.firestore()
     const bucketName = 'common-research.appspot.com';
-    const fileName = `reports/report.csv`;
+    const fileName = `reports/report_multitask.csv`;
     const tempFilePath = path.join(os.tmpdir(), fileName);
 
     const storage = new Storage();
@@ -37,11 +37,11 @@ exports.csvJsonReport = functions.https.onRequest((request, response) => {
         }).catch(err => console.log(err))
 });
 
-exports.csvJsonReport2 = functions.https.onRequest((request, response) => {
+exports.csvJsonReport_testfocus = functions.https.onRequest((request, response) => {
     response.set('Access-Control-Allow-Origin', '*');
     const db = admin.firestore();
     const bucketName = 'common-research.appspot.com';
-    const fileName = 'reports/report2.csv';
+    const fileName = 'reports/report_testfocus.csv';
     const tempFilePath = path.join(os.tmpdir(), fileName);
 
     const storage = new Storage();

@@ -7,17 +7,17 @@ exports.buildFocusHeader = () => {
     const additionalFields = [];
 
     for (let i = 0; i < practiceRuns; i++) {
-        fields.push(`PT${i + 1}_rotated`);
-        fields.push(`PT${i + 1}_distractors`);
-        fields.push(`PT${i + 1}_cost`);
+        fields.push(`PT${i + 1}_type`);
+        fields.push(`PT${i + 1}_NumDistractors`);
         fields.push(`PT${i + 1}_correct`);
+        fields.push(`PT${i + 1}_cost`);
     }
 
     for (let i = 0; i < runs; i++) {
-        fields.push(`T${i + 1}_rotated`);
-        fields.push(`T${i + 1}_distractors`);
-        fields.push(`T${i + 1}_cost`);
+        fields.push(`T${i + 1}_type`);
+        fields.push(`T${i + 1}_NumDistractors`);
         fields.push(`T${i + 1}_correct`);
+        fields.push(`T${i + 1}_cost`);
     }
 
     let totalArr = fields.concat(additionalFields);
@@ -39,17 +39,17 @@ exports.buildFocusData = (input) => {
         str += e.test_time + ',';
 
         e.practice_res.forEach(subRes => {
-            str += subRes.isAnyRedTargetRotated + ',';
+            str += (subRes.isAnyRedTargetRotated ? "R" : "NR") + ',';
             str += subRes.numberOfBlueRectangles + ',';
-            str += subRes.timeCost + ',';
             str += subRes.userChoice + ',';
+            str += subRes.timeCost + ',';
         });
 
         e.res.forEach(subRes => {
-            str += subRes.isAnyRedTargetRotated + ',';
+            str += (subRes.isAnyRedTargetRotated ? "R" : "NR") + ',';
             str += subRes.numberOfBlueRectangles + ',';
-            str += subRes.timeCost + ',';
             str += subRes.userChoice + ',';
+            str += subRes.timeCost + ',';
         });
 
         // Calculate and add aggregate variables here if necessary
