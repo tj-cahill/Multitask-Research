@@ -26,6 +26,7 @@ exports.buildFocusHeader = () => {
     for (let i = 0; i < practiceRuns; i++) {
         fields.push(`PT${i + 1}_type`);
         fields.push(`PT${i + 1}_NumDistractors`);
+        // fields.push(`PT${i + 1}_choice`); // Not in spec; remove after debugging
         fields.push(`PT${i + 1}_correct`);
         fields.push(`PT${i + 1}_cost`);
     }
@@ -33,6 +34,7 @@ exports.buildFocusHeader = () => {
     for (let i = 0; i < runs; i++) {
         fields.push(`T${i + 1}_type`);
         fields.push(`T${i + 1}_NumDistractors`);
+        // fields.push(`T${i + 1}_choice`); // Not in spec; remove after debugging
         fields.push(`T${i + 1}_correct`);
         fields.push(`T${i + 1}_cost`);
     }
@@ -70,16 +72,21 @@ exports.buildFocusData = (input) => {
         str += e.test_time + ',';
 
         e.practice_res.forEach(subRes => {
+
+            let isCorrect = (subRes.userChoice == subRes.isAnyRedTargetRotated);
             str += (subRes.isAnyRedTargetRotated ? "R" : "NR") + ',';
             str += subRes.numberOfBlueRectangles + ',';
-            str += subRes.userChoice + ',';
+            // str += (subRes.userChoice ? "R" : "NR") + ','; // Not in spec; remove after debugging
+            str += isCorrect + ',';
             str += subRes.timeCost + ',';
         });
 
         e.res.forEach(subRes => {
+            let isCorrect = (subRes.userChoice == subRes.isAnyRedTargetRotated);
             str += (subRes.isAnyRedTargetRotated ? "R" : "NR") + ',';
             str += subRes.numberOfBlueRectangles + ',';
-            str += subRes.userChoice + ',';
+            // str += (subRes.userChoice ? "R" : "NR") + ','; // Not in spec; remove after debugging
+            str += isCorrect + ',';
             str += subRes.timeCost + ',';
 
             // Add time cost to appropriate tally
@@ -106,13 +113,13 @@ exports.buildFocusData = (input) => {
             }
 
             // Increment counter based on correctness of user choice
-            if (!subRes.isAnyRedTargetRotated && !subRes.userChoice) {
+            if (!subRes.isAnyRedTargetRotated && !isCorrect) {
                 Total_FalseAlarm++;
-            } else if (subRes.isAnyRedTargetRotated && !subRes.userChoice) {
+            } else if (subRes.isAnyRedTargetRotated && !isCorrect) {
                 Total_Miss++;
-            } else if (!subRes.isAnyRedTargetRotated && subRes.userChoice) {
+            } else if (!subRes.isAnyRedTargetRotated && isCorrect) {
                 Total_CorrectRejection++;
-            } else if (subRes.isAnyRedTargetRotated && subRes.userChoice) {
+            } else if (subRes.isAnyRedTargetRotated && isCorrect) {
                 Total_Hit++;
             }
         });
