@@ -127,7 +127,7 @@ exports.buildFocusData = (input) => {
         // Calculate and add aggregate variables here if necessary
         let AvgTimeR = calculateAvg(TotalTimeR);
         let AvgTimeNR = calculateAvg(TotalTimeNR);
-        let SwitchCost = Math.abs(AvgTimeR - AvgTimeNR);
+        let SwitchCost = AvgTimeR - AvgTimeNR;
 
         str += AvgTimeR + ',';
         str += AvgTimeNR + ',';

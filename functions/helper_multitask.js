@@ -117,7 +117,7 @@ exports.buildMultitaskData = (input) => {
 
         let AvgTimeSwitch = calculateAvg(TotalTimeSwitch);
         let AvgTimeNotSwitch = calculateAvg(TotalTimeNotSwitch);
-        let SwitchCost = Math.abs(AvgTimeNotSwitch - AvgTimeSwitch);
+        let SwitchCost = AvgTimeSwitch - AvgTimeNotSwitch;
         let AvgSeq1Time = calculateAvg(TotalSeq1Time);
         let AvgSeq2Time = calculateAvg(TotalSeq2Time);
         let AvgSeq3Time = calculateAvg(TotalSeq3Time);
