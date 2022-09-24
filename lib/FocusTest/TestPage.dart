@@ -85,8 +85,8 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
-    widthRatio = MediaQuery.of(context).size.width / 768;
-    heightRatio = MediaQuery.of(context).size.height / 1024;
+    widthRatio = MediaQuery.of(context).size.width / 1024;
+    heightRatio = MediaQuery.of(context).size.height / 768;
     return Scaffold(
         body:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -111,18 +111,25 @@ class _TestPageState extends State<TestPage> {
                       height: 20,
                       color: Color.fromARGB(255, 240, 244, 244),
                       child: Text(
-                        widget.title + " $currentLevel of ${data.length}",
+                        widget.title != "Test"
+                            ? widget.title + " $currentLevel of ${data.length}"
+                            : '',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color.fromARGB(255, 18, 18, 18),
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    LinearProgressIndicator(
-                      value: currentLevel / data.length,
-                    ),
+                    widget.title != "Test"
+                        ? LinearProgressIndicator(
+                            value: currentLevel / data.length,
+                          )
+                        : Container(),
                     Padding(
-                        padding: EdgeInsets.only(top: 105),
+                        padding: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height >= 1080
+                                ? 105
+                                : 0),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -140,7 +147,10 @@ class _TestPageState extends State<TestPage> {
                               ),
                             ])),
                     Padding(
-                      padding: EdgeInsets.only(top: 200),
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height >= 1080
+                              ? 200
+                              : 0),
                     )
                   ],
                 )),

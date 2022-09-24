@@ -21,6 +21,7 @@ class _MultiTaskLoginState extends State<MultiTaskLogin> {
   var heightRatio;
   final TextEditingController _idFilter = new TextEditingController();
   String _id = "";
+  bool _viewportOK;
 
   @override
   void dispose() {
@@ -43,8 +44,10 @@ class _MultiTaskLoginState extends State<MultiTaskLogin> {
 
   @override
   Widget build(BuildContext context) {
-    widthRatio = MediaQuery.of(context).size.width / 768;
-    heightRatio = MediaQuery.of(context).size.height / 1024;
+    widthRatio = MediaQuery.of(context).size.width / 1024;
+    heightRatio = MediaQuery.of(context).size.height / 768;
+    _viewportOK = MediaQuery.of(context).size.width >= 1024 &&
+        MediaQuery.of(context).size.height >= 768;
     return new Scaffold(
       body: new Row(mainAxisAlignment: MainAxisAlignment.center,
           // padding: EdgeInsets.only(left: 450, right: 450),
@@ -52,12 +55,43 @@ class _MultiTaskLoginState extends State<MultiTaskLogin> {
             new Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                _showViewportAlert(),
                 _buildTextFields(),
                 _buildButtons(),
               ],
             ),
           ]),
     );
+  }
+
+  void goFullScreen() {
+    document.documentElement.requestFullscreen();
+  }
+
+  Widget _showViewportAlert() {
+    if (!_viewportOK) {
+      return new Container(
+        width: 300,
+        margin: EdgeInsets.only(top: 275 * heightRatio),
+        padding: EdgeInsets.all(25),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.redAccent, width: 5)),
+        child: Column(
+          children: [
+            Text('WARNING',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red)),
+            Text(
+                'To ensure that the test displays correctly, please maximize your browser window before proceeding.',
+                style: TextStyle(fontSize: 15, color: Colors.red))
+          ],
+        ),
+      );
+    } else {
+      return new Container();
+    }
   }
 
   Widget _buildTextFields() {
@@ -103,7 +137,9 @@ class _MultiTaskLoginState extends State<MultiTaskLogin> {
   void _loginPressed() {
     // print('The user wants to login with $_id');
 
-    if (_id.isNotEmpty) {
+    if (_id.isNotEmpty && _viewportOK) {
+      // goFullScreen();
+
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => Instruction(id: _id)));
     }

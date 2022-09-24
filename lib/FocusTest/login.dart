@@ -20,6 +20,7 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
   var heightRatio;
   final TextEditingController _idFilter = new TextEditingController();
   String _id = "";
+  bool _viewportOK;
 
   @override
   void dispose() {
@@ -42,8 +43,11 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
 
   @override
   Widget build(BuildContext context) {
-    widthRatio = MediaQuery.of(context).size.width / 768;
-    heightRatio = MediaQuery.of(context).size.height / 1024;
+    widthRatio = MediaQuery.of(context).size.width / 1024;
+    heightRatio = MediaQuery.of(context).size.height / 768;
+    _viewportOK = MediaQuery.of(context).size.width >= 1024 &&
+        MediaQuery.of(context).size.height >= 768;
+
     return new Scaffold(
       body: new Row(mainAxisAlignment: MainAxisAlignment.center,
           // padding: EdgeInsets.only(left: 450, right: 450),
@@ -51,6 +55,7 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
             new Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                _showViewportAlert(),
                 _buildTextFields(),
                 _buildButtons(),
               ],
@@ -59,9 +64,39 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
     );
   }
 
+  void goFullScreen() {
+    document.documentElement.requestFullscreen();
+  }
+
+  Widget _showViewportAlert() {
+    if (!_viewportOK) {
+      return new Container(
+        width: 300,
+        margin: EdgeInsets.only(top: 275 * heightRatio),
+        padding: EdgeInsets.all(25),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.redAccent, width: 5)),
+        child: Column(
+          children: [
+            Text('WARNING',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red)),
+            Text(
+                'To ensure that the test displays correctly, please maximize your browser window before proceeding.',
+                style: TextStyle(fontSize: 15, color: Colors.red))
+          ],
+        ),
+      );
+    } else {
+      return new Container();
+    }
+  }
+
   Widget _buildTextFields() {
     return new Container(
-      padding: EdgeInsets.only(top: 300 * heightRatio),
+      padding: EdgeInsets.only(top: _viewportOK ? 300 * heightRatio : 0),
       width: 300,
       child: new Column(
         children: <Widget>[
@@ -87,10 +122,9 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
             height: 35,
             disabledColor: Color.fromARGB(255, 255, 0, 1),
             child: RaisedButton(
-              child: new Text('Go!',
-                  style: TextStyle(fontSize: 15, color: Colors.white)),
-              onPressed: _loginPressed,
-            ),
+                child: new Text('Go!',
+                    style: TextStyle(fontSize: 15, color: Colors.white)),
+                onPressed: _loginPressed),
           )
         ],
       ),
@@ -102,7 +136,9 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
   void _loginPressed() {
     // print('The user wants to login with $_id');
 
-    if (_id.isNotEmpty) {
+    if (_id.isNotEmpty && _viewportOK) {
+      // goFullScreen();
+
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

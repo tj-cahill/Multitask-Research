@@ -35,11 +35,11 @@ class _InstructionPageState extends State<InstructionPage> {
     ),
     InstructionComponent(
       upperContent: Container(
-        // height: 150,
-        width: 655,
+        height: 425,
+        width: 550,
         child: Image.asset(
           "assets/second.png",
-          fit: BoxFit.cover,
+          fit: BoxFit.scaleDown,
         ),
       ),
       instruction:
@@ -53,8 +53,8 @@ class _InstructionPageState extends State<InstructionPage> {
 
   @override
   Widget build(BuildContext context) {
-    widthRatio = MediaQuery.of(context).size.width / 768;
-    heightRatio = MediaQuery.of(context).size.height / 1024;
+    widthRatio = MediaQuery.of(context).size.width / 1024;
+    heightRatio = MediaQuery.of(context).size.height / 768;
     return Scaffold(
         body:
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -90,7 +90,55 @@ class _InstructionPageState extends State<InstructionPage> {
                       value: currentLevel / widget.totalLevel,
                     ),
                     Padding(
-                        padding: EdgeInsets.only(top: 100),
+                        padding: EdgeInsets.only(
+                            top: currentLevel != 3 ? 0 : heightRatio * 250),
+                        child: Opacity(
+                          opacity: currentLevel != 3 ? 0 : 1,
+                          child: Container(
+                              width: 165,
+                              child: ButtonTheme(
+                                  minWidth: widthRatio * 100,
+                                  height: 35,
+                                  disabledColor: Color.fromARGB(255, 255, 0, 1),
+                                  child: RaisedButton(
+                                      elevation: 0,
+                                      focusElevation: 0,
+                                      hoverElevation: 0,
+                                      disabledElevation: 0,
+                                      highlightElevation: 0,
+                                      color: Color.fromARGB(255, 0, 66, 118),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            new BorderRadius.circular(2.0),
+                                      ),
+                                      onPressed: () {
+                                        if (currentLevel != 3) {
+                                          return;
+                                        }
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => TestPage(
+                                                title: "Practice Test",
+                                                id: widget.id,
+                                              ),
+                                            ));
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text('Start the Test',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 20,
+                                                  color: Colors.white)),
+                                        ],
+                                      )))),
+                        )),
+                    Padding(
+                        padding:
+                            EdgeInsets.only(top: currentLevel != 2 ? 100 : 0),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[levels[currentLevel - 1]])),
@@ -103,53 +151,7 @@ class _InstructionPageState extends State<InstructionPage> {
                       },
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 25),
-                    ),
-                    Opacity(
-                      opacity: currentLevel != 3 ? 0 : 1,
-                      child: Container(
-                          width: 165,
-                          child: ButtonTheme(
-                              minWidth: widthRatio * 100,
-                              height: 35,
-                              disabledColor: Color.fromARGB(255, 255, 0, 1),
-                              child: RaisedButton(
-                                  elevation: 0,
-                                  focusElevation: 0,
-                                  hoverElevation: 0,
-                                  disabledElevation: 0,
-                                  highlightElevation: 0,
-                                  color: Color.fromARGB(255, 0, 66, 118),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(2.0),
-                                  ),
-                                  onPressed: () {
-                                    if (currentLevel != 3) {
-                                      return;
-                                    }
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => TestPage(
-                                            title: "Practice Test",
-                                            id: widget.id,
-                                          ),
-                                        ));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text('Start the Test',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.white)),
-                                    ],
-                                  )))),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 32),
+                      padding: EdgeInsets.only(top: 57),
                     ),
                   ],
                 )),

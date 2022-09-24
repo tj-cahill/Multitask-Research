@@ -19,6 +19,7 @@ Map<String, dynamic> levelSeven = algorithm.generateConsecutiveTask(true, 6);
 Map<String, dynamic> levelEight = algorithm.generateConsecutiveTask(false, 6);
 
 List generator() {
+  // Change the number of trials by altering this constant (multiples of 8).
   const int PAIRS = 10;
   List<int> blueRecPattern = [0, 2, 4, 6];
 
