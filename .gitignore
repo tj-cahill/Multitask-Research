@@ -45,3 +45,4 @@ lib/generated_plugin_registrant.dart
 KEYS.dart
 .now
 node_modules/
+pubspec.lock
