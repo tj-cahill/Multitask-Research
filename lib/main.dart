@@ -74,7 +74,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
   switch (routingData.route) {
     case '/home':
       return MaterialPageRoute(builder: (_) => MyHomePage());
-    case '/exercisets':
+    case '/multitask':
       return MaterialPageRoute(
           builder: (_) => MultiTaskLogin(
                 id: routingData._queryParameters["id"],
@@ -97,18 +97,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         //   id: routingData._queryParameters["id"],
         // ),
       );
-    case '/instruction':
-      return MaterialPageRoute(
-          builder: (_) => Instruction(
-                id: routingData._queryParameters["id"],
-              ));
-    case '/onboarding':
-      return MaterialPageRoute(
-          builder: (_) => Scaffold(
-                  body: FirstPage(
-                id: routingData._queryParameters["id"],
-              )));
-    case '/exportts':
+    // case '/instruction':
+    //   return MaterialPageRoute(
+    //       builder: (_) => Instruction(
+    //             id: routingData._queryParameters["id"],
+    //           ));
+    // case '/onboarding':
+    //   return MaterialPageRoute(
+    //       builder: (_) => Scaffold(
+    //               body: FirstPage(
+    //             id: routingData._queryParameters["id"],
+    //           )));
+    case '/export':
       return MaterialPageRoute(
         builder: (_) => Scaffold(
           body: Center(

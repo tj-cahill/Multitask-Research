@@ -31,8 +31,11 @@
 .packages
 .pub-cache/
 .pub/
-# pubspec.lock
 /build/
+
+# Node.js related
+node_modules/
+pubspec.lock
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -44,4 +47,4 @@ lib/generated_plugin_registrant.dart
 # Important secret configs
 KEYS.dart
 .now
-node_modules/
+
