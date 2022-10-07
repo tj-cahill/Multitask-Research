@@ -11,7 +11,7 @@ import 'package:MultitaskResearch/KEYS.dart';
 import 'package:MultitaskResearch/MultiTask/HomePage.dart';
 import 'package:MultitaskResearch/MultiTask/instruction.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
-import 'package:MultitaskResearch/OnboardingSite/firstPage.dart';
+import 'package:MultitaskResearch/OnboardingSite/loginPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
 import 'package:url_launcher/url_launcher.dart';
@@ -36,11 +36,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HCI Research',
+      title: 'Multitasking Measurement',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/testfocus',
+      initialRoute: '/onboarding',
       onGenerateRoute: generateRoute,
     );
   }
@@ -105,7 +105,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/onboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-                  body: FirstPage(
+                  body: LoginPage(
                 id: routingData._queryParameters["id"],
               )));
     case '/export':

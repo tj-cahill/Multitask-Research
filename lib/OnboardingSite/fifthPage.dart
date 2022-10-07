@@ -1,4 +1,4 @@
-import 'package:MultitaskResearch/OnboardingSite/thirdPage.dart';
+// import 'package:MultitaskResearch/OnboardingSite/thirdPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,8 +12,8 @@ class FifthPage extends StatefulWidget {
 
 class _FifthPageState extends State<FifthPage> {
   void buttonClicked() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => ThirdPage(id: widget.id)));
+    // Navigator.pushReplacement(context,
+    //     MaterialPageRoute(builder: (context) => ThirdPage(id: widget.id)));
   }
 
   @override

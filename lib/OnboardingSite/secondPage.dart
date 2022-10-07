@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'thirdPage.dart';
+// import 'thirdPage.dart';
 
 class SecondPage extends StatefulWidget {
   final String id;
@@ -13,8 +13,8 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   void buttonClicked() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => ThirdPage(id: widget.id)));
+    // Navigator.pushReplacement(context,
+    //     MaterialPageRoute(builder: (context) => ThirdPage(id: widget.id)));
   }
 
   @override
