@@ -9,13 +9,13 @@ class TestFocusLogin extends StatefulWidget {
 
   TestFocusLogin({Key key, this.id}) : super(key: key);
   @override
-  State<StatefulWidget> createState() => new _MultiTaskLoginState();
+  State<StatefulWidget> createState() => new _TestFocusLoginState();
 }
 
 // Used for controlling whether the user is loggin or creating an account
 enum FormType { login, register }
 
-class _MultiTaskLoginState extends State<TestFocusLogin> {
+class _TestFocusLoginState extends State<TestFocusLogin> {
   var widthRatio;
   var heightRatio;
   final TextEditingController _idFilter = new TextEditingController();
@@ -29,7 +29,7 @@ class _MultiTaskLoginState extends State<TestFocusLogin> {
     super.dispose();
   }
 
-  _MultiTaskLoginState() {
+  _TestFocusLoginState() {
     _idFilter.addListener(_idListen);
   }
 
