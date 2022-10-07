@@ -84,30 +84,30 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           builder: (_) => TestFocusLogin(
                 id: routingData._queryParameters["id"],
               ));
-      return MaterialPageRoute(
-        builder: (_) => TestPage(
-          title: "Test",
-          id: routingData._queryParameters["id"],
-          practiceTestRes: [],
-        ),
-        // builder: (_) => InstructionPage(
-        //   title: "Test",
-        //   totalLevel: 3,
-        //   content: Container(),
-        //   id: routingData._queryParameters["id"],
-        // ),
-      );
+    // return MaterialPageRoute(
+    //   builder: (_) => TestPage(
+    //     title: "Test",
+    //     id: routingData._queryParameters["id"],
+    //     practiceTestRes: [],
+    //   ),
+    // builder: (_) => InstructionPage(
+    //   title: "Test",
+    //   totalLevel: 3,
+    //   content: Container(),
+    //   id: routingData._queryParameters["id"],
+    // ),
+    // );
     // case '/instruction':
     //   return MaterialPageRoute(
     //       builder: (_) => Instruction(
     //             id: routingData._queryParameters["id"],
     //           ));
-    // case '/onboarding':
-    //   return MaterialPageRoute(
-    //       builder: (_) => Scaffold(
-    //               body: FirstPage(
-    //             id: routingData._queryParameters["id"],
-    //           )));
+    case '/onboarding':
+      return MaterialPageRoute(
+          builder: (_) => Scaffold(
+                  body: FirstPage(
+                id: routingData._queryParameters["id"],
+              )));
     case '/export':
       return MaterialPageRoute(
         builder: (_) => Scaffold(

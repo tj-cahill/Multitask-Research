@@ -52,7 +52,7 @@ class _FirstPageState extends State<FirstPage> {
                     children: <Widget>[
                       Container(
                           width: width * 0.8,
-                          child: Image.asset("assets/bostonuniverisy.jpg"))
+                          child: Image.asset("assets/bu_street.jpg"))
                     ]),
               ),
               Padding(
