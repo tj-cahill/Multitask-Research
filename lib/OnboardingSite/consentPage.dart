@@ -1,6 +1,5 @@
-// import 'package:MultitaskResearch/OnboardingSite/fourthPage.dart';
+// import 'package:MultitaskResearch/MultiTask/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ConsentPage extends StatefulWidget {
   final String id;
@@ -13,7 +12,7 @@ class ConsentPage extends StatefulWidget {
 class _ConsentPageState extends State<ConsentPage> {
   void buttonClicked() {
     // Navigator.pushReplacement(context,
-    //     MaterialPageRoute(builder: (context) => FourthPage(id: widget.id)));
+    //     MaterialPageRoute(builder: (context) => MultiTaskLogin(id: widget.id)));
   }
 
   @override

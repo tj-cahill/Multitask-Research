@@ -1,6 +1,5 @@
 import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
   final String id;
@@ -12,10 +11,33 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _idFilter = new TextEditingController();
+  String _id = "";
+
+  // Following modelled on login routine for individual tests; review later
+
+  @override
+  void dispose() {
+    _idFilter.dispose();
+    super.dispose();
+  }
+
+  _LoginPageState() {
+    _idFilter.addListener(_idListen);
+  }
+
+  void _idListen() {
+    if (_idFilter.text.isEmpty) {
+      _id = "";
+    } else {
+      _id = _idFilter.text;
+    }
+  }
 
   void buttonClicked() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => ConsentPage(id: widget.id)));
+    if (_id.isNotEmpty) {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => ConsentPage(id: _id)));
+    }
   }
 
   @override
