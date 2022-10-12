@@ -1,14 +1,15 @@
 import 'dart:async';
 import 'dart:math';
-import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
-import 'package:MultitaskResearch/MultiTask/end.dart';
-import 'package:MultitaskResearch/MultiTask/randomAlgo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'dart:html';
+import 'package:MultitaskResearch/FocusTest/InstructionPage.dart';
+import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
+import 'package:MultitaskResearch/MultiTask/end.dart';
+import 'package:MultitaskResearch/MultiTask/randomAlgo.dart';
 
 Future<List<CueStimulus>> loadData() async {
   return execuate();
@@ -178,6 +179,22 @@ class _TestState extends State<Test> {
     }
   }
 
+  // Function that redirects to the subsequent phase (can be extended for
+  // random sequencing if necessary).
+  void nextPhase() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => InstructionPage(
+          id: widget.id,
+          title: "Instruction",
+          totalLevel: 3,
+          content: Container(),
+        ),
+      ),
+    );
+  }
+
   bool isTestEnd() {
     if (!isEnd && currentLevel == 6 && widget.isUnscored) {
       // jump to new game
@@ -213,8 +230,9 @@ class _TestState extends State<Test> {
           .add(mp)
           .then((value) => print(value))
           .catchError((onError) => print(onError));
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => End()));
+      nextPhase();
+      // Navigator.pushReplacement(
+      //     context, MaterialPageRoute(builder: (context) => End()));
       return true;
     }
     return false;
