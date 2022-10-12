@@ -25,7 +25,9 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
   }
 
   Widget _showViewportAlert() {
-    if (!_viewportOK) {
+    if (!_viewportOK)
+      goFullScreen();
+    else if (!_viewportOK) {
       return new Container(
         width: 300,
         margin: EdgeInsets.only(top: 275 * heightRatio),
