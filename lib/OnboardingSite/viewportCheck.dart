@@ -25,6 +25,9 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
   }
 
   Widget _showViewportAlert() {
+    // if (!_viewportOK)
+    //   goFullScreen();
+    // else
     if (!_viewportOK) {
       return new Container(
         width: 300,
@@ -58,7 +61,9 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
         MediaQuery.of(context).size.height >= 768;
 
     if (_viewportOK) {
-      nextPhase();
+      Future.delayed(Duration.zero, () {
+        nextPhase();
+      });
     }
 
     return new Scaffold(
