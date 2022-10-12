@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/MultiTask/instruction.dart';
+import 'package:MultitaskResearch/OnboardingSite/viewportCheck.dart';
 
 class ConsentPage extends StatefulWidget {
   final String id;
@@ -11,8 +11,10 @@ class ConsentPage extends StatefulWidget {
 
 class _ConsentPageState extends State<ConsentPage> {
   void buttonClicked() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => Instruction(id: widget.id)));
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ViewportCheckPage(id: widget.id)));
   }
 
   @override
