@@ -10,7 +10,7 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final TextEditingController _idFilter = new TextEditingController();
+  final TextEditingController _idController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _id = "";
 
@@ -18,12 +18,12 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    _idFilter.dispose();
+    _idController.dispose();
     super.dispose();
   }
 
   _LoginFormState() {
-    _idFilter.addListener(_idListen);
+    _idController.addListener(_idListen);
   }
 
   // Validates user input to ensure that a valid Participant ID has been entered
@@ -32,8 +32,8 @@ class _LoginFormState extends State<LoginForm> {
     value = value.trim();
 
     // Validation regex
-    RegExp sonaPattern = new RegExp(r'^U\d{8}$');
-    // RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
+    final RegExp sonaPattern = new RegExp(r'^U\d{8}$');
+    // final RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
 
     if (value == null || value.isEmpty) {
       return "Please enter a Participant ID";
@@ -44,10 +44,10 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _idListen() {
-    if (_idFilter.text.isEmpty) {
+    if (_idController.text.isEmpty) {
       _id = "";
     } else {
-      _id = _idFilter.text;
+      _id = _idController.text;
     }
   }
 
@@ -193,7 +193,7 @@ class _LoginFormState extends State<LoginForm> {
                                         width: 300,
                                         child: new TextFormField(
                                           autofocus: true,
-                                          controller: _idFilter,
+                                          controller: _idController,
                                           validator: _idValidator,
                                           decoration: new InputDecoration(
                                               labelText: 'ID'),

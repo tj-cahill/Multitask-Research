@@ -12,7 +12,7 @@ import 'package:MultitaskResearch/MultiTask/HomePage.dart';
 import 'package:MultitaskResearch/MultiTask/instruction.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
 import 'package:MultitaskResearch/OnboardingSite/loginForm.dart';
-import 'package:MultitaskResearch/DebriefSite/debriefPage.dart';
+import 'package:MultitaskResearch/DebriefSite/emailForm.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
 import 'package:url_launcher/url_launcher.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/onboarding',
+      initialRoute: '/onboarding', // Change as necessary for debugging
       onGenerateRoute: generateRoute,
     );
   }
@@ -112,7 +112,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/debrief':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-                  body: DebriefPage(
+                  body: EmailForm(
                 id: routingData._queryParameters["id"],
               )));
     case '/export':
