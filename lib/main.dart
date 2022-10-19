@@ -11,7 +11,7 @@ import 'package:MultitaskResearch/KEYS.dart';
 import 'package:MultitaskResearch/MultiTask/HomePage.dart';
 import 'package:MultitaskResearch/MultiTask/instruction.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
-import 'package:MultitaskResearch/OnboardingSite/loginPage.dart';
+import 'package:MultitaskResearch/OnboardingSite/loginForm.dart';
 import 'package:MultitaskResearch/DebriefSite/debriefPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
@@ -106,7 +106,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/onboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-                  body: LoginPage(
+                  body: LoginForm(
                 id: routingData._queryParameters["id"],
               )));
     case '/debrief':

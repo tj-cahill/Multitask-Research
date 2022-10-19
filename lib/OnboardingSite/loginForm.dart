@@ -1,16 +1,17 @@
 import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginForm extends StatefulWidget {
   final String id;
-  LoginPage({Key key, @required this.id}) : super(key: key);
+  LoginForm({Key key, @required this.id}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginFormState createState() => _LoginFormState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginFormState extends State<LoginForm> {
   final TextEditingController _idFilter = new TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   String _id = "";
 
   // Following modelled on login routine for individual tests; review later
@@ -21,8 +22,25 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  _LoginPageState() {
+  _LoginFormState() {
     _idFilter.addListener(_idListen);
+  }
+
+  // Validates user input to ensure that a valid Participant ID has been entered
+  String _idValidator(value) {
+    // Trim whitespace
+    value = value.trim();
+
+    // Validation regex
+    RegExp sonaPattern = new RegExp(r'^U\d{8}$');
+    // RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
+
+    if (value == null || value.isEmpty) {
+      return "Please enter a Participant ID";
+    } else if (!sonaPattern.hasMatch(value)) {
+      return "Please enter a valid Participant ID";
+    }
+    return null;
   }
 
   void _idListen() {
@@ -34,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void buttonClicked() {
-    if (_id.isNotEmpty) {
+    if (_formKey.currentState.validate()) {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => ConsentPage(id: _id)));
     }
@@ -44,10 +62,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return ListView(children: <Widget>[
-      Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
+
+    return Form(
+        key: _formKey,
+        child: ListView(children: <Widget>[
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <
+              Widget>[
             Column(children: <Widget>[
               Container(
                   color: Color.fromRGBO(204, 0, 0, 1),
@@ -171,9 +191,10 @@ class _LoginPageState extends State<LoginPage> {
                                     padding: EdgeInsets.only(top: 50),
                                     child: new Container(
                                         width: 300,
-                                        child: new TextField(
+                                        child: new TextFormField(
                                           autofocus: true,
                                           controller: _idFilter,
+                                          validator: _idValidator,
                                           decoration: new InputDecoration(
                                               labelText: 'ID'),
                                         ))),
@@ -209,6 +230,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                     height: 1, color: Color.fromRGBO(179, 179, 179, 1))),
           ])
-    ]);
+        ]));
   }
 }
