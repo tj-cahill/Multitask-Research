@@ -79,6 +79,97 @@ class _EmailFormState extends State<EmailForm> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
 
+// Two alternate versions of the debrief text (one without email input)
+    Container sonaText = new Container(
+        width: width * 0.8,
+        child: Column(children: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 30),
+              child: Text(
+                "The study is now complete. Thank you for your participation!",
+                textAlign: TextAlign.center,
+                softWrap: true,
+                style: TextStyle(
+                    fontFamily: "OpenSans",
+                    fontWeight: FontWeight.w700,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 32,
+                    color: Color.fromARGB(255, 45, 41, 38)),
+              )),
+        ]));
+    Container qualtricsText = new Container(
+        width: width * 0.8,
+        child: Column(
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(top: 0),
+                child: Text(
+                  "The study is now complete. Thank you for your participation!",
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                      fontFamily: "OpenSans",
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 32,
+                      color: Color.fromARGB(255, 45, 41, 38)),
+                )),
+            Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text(
+                  "If you would like to be contacted regarding a \$20 Amazon Gift Card as compensation for your participation, please provide your personal email address below. The provided email address will be used to transfer an electronic gift card in exchange for your successful participation in this study.",
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                      fontFamily: "OpenSans",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 32,
+                      color: Color.fromARGB(255, 45, 41, 38)),
+                )),
+            Padding(
+                padding: EdgeInsets.only(top: 50),
+                child: Text(
+                  "Please enter your email address below",
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: TextStyle(
+                      fontFamily: "OpenSans",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 28,
+                      color: Color.fromARGB(255, 45, 41, 38)),
+                )),
+            Padding(
+                padding: EdgeInsets.only(top: 50),
+                child: new Container(
+                    width: 300,
+                    child: new TextFormField(
+                      autofocus: true,
+                      controller: _emailController,
+                      validator: _emailValidator,
+                      decoration: new InputDecoration(labelText: 'email'),
+                    ))),
+            Padding(
+                padding: EdgeInsets.only(top: 50, bottom: 50),
+                child: ButtonTheme(
+                    minWidth: 300.0,
+                    height: 55.0,
+                    child: RaisedButton(
+                      child: Text("Next",
+                          textAlign: TextAlign.center,
+                          softWrap: true,
+                          style: TextStyle(
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.w700,
+                            fontSize: 28,
+                            color: Colors.white,
+                          )),
+                      onPressed: this.buttonClicked,
+                      color: Color.fromRGBO(204, 0, 0, 1),
+                      splashColor: Color.fromRGBO(204, 0, 0, 1),
+                    )))
+          ],
+        ));
+
     return Form(
         key: _formKey,
         child: Scaffold(
@@ -110,86 +201,7 @@ class _EmailFormState extends State<EmailForm> {
                     padding: EdgeInsets.only(top: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                            width: width * 0.8,
-                            child: Column(
-                              children: <Widget>[
-                                Padding(
-                                    padding: EdgeInsets.only(top: 0),
-                                    child: Text(
-                                      "The study is now complete. Thank you for your participation!",
-                                      textAlign: TextAlign.center,
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          fontFamily: "OpenSans",
-                                          fontWeight: FontWeight.w700,
-                                          fontStyle: FontStyle.italic,
-                                          fontSize: 32,
-                                          color:
-                                              Color.fromARGB(255, 45, 41, 38)),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Text(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices venenatis ipsum eget dapibus. Fusce id ante ultrices, ultricies urna a, volutpat arcu. Nulla urna libero, tincidunt non luctus eget, viverra ut urna. Donec porttitor magna nec libero luctus, efficitur maximus felis vestibulum. Mauris nec lectus eu arcu pulvinar semper.",
-                                      textAlign: TextAlign.center,
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          fontFamily: "OpenSans",
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 32,
-                                          color:
-                                              Color.fromARGB(255, 45, 41, 38)),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(top: 50),
-                                    child: Text(
-                                      "Please enter your email address below",
-                                      textAlign: TextAlign.center,
-                                      softWrap: true,
-                                      style: TextStyle(
-                                          fontFamily: "OpenSans",
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 28,
-                                          color:
-                                              Color.fromARGB(255, 45, 41, 38)),
-                                    )),
-                                Padding(
-                                    padding: EdgeInsets.only(top: 50),
-                                    child: new Container(
-                                        width: 300,
-                                        child: new TextFormField(
-                                          autofocus: true,
-                                          controller: _emailController,
-                                          validator: _emailValidator,
-                                          decoration: new InputDecoration(
-                                              labelText: 'email'),
-                                        ))),
-                                Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 50, bottom: 50),
-                                    child: ButtonTheme(
-                                        minWidth: 300.0,
-                                        height: 55.0,
-                                        child: RaisedButton(
-                                          child: Text("Next",
-                                              textAlign: TextAlign.center,
-                                              softWrap: true,
-                                              style: TextStyle(
-                                                fontFamily: "OpenSans",
-                                                fontWeight: FontWeight.w700,
-                                                fontSize: 28,
-                                                color: Colors.white,
-                                              )),
-                                          onPressed: this.buttonClicked,
-                                          color: Color.fromRGBO(204, 0, 0, 1),
-                                          splashColor:
-                                              Color.fromRGBO(204, 0, 0, 1),
-                                        )))
-                              ],
-                            ))
-                      ],
+                      children: <Widget>[sonaText],
                     )),
                 Padding(
                   padding: EdgeInsets.only(bottom: 120),
