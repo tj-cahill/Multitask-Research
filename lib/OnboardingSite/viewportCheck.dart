@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:html';
-import 'package:MultitaskResearch/MultiTask/instruction.dart';
+import 'package:MultitaskResearch/OnboardingSite/qualityPromptForm.dart';
 
 class ViewportCheckPage extends StatefulWidget {
   final String id;
@@ -17,7 +17,7 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
 
   void nextPhase() {
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => Instruction(id: widget.id)));
+        MaterialPageRoute(builder: (context) => QAForm(id: widget.id)));
   }
 
   void goFullScreen() {

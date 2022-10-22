@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 
-class End extends StatefulWidget {
+/* Ejection
+ *
+ * This class creates an endpoint page for participants who are found to
+ * be ineligible for participation in the study, and terminates the study
+ * early without collecting data.
+ */
+
+class Ejection extends StatefulWidget {
   final String id;
-  End({Key key, @required this.id}) : super(key: key);
+  Ejection({Key key, @required this.id}) : super(key: key);
 
   @override
-  _EndState createState() => _EndState();
+  _EjectionState createState() => _EjectionState();
 }
 
-class _EndState extends State<End> {
+class _EjectionState extends State<Ejection> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -50,7 +57,7 @@ class _EndState extends State<End> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Text(
-                                "Your response has been recorded. Thank you for your participation!",
+                                "Thank you for your interest. Given your response, you have been deemed ineligible to participate in this study. You may now exit out of this window.",
                                 textAlign: TextAlign.center,
                                 softWrap: true,
                                 style: TextStyle(
