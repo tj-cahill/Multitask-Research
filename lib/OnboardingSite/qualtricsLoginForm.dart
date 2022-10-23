@@ -1,15 +1,16 @@
-import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
 import 'package:flutter/material.dart';
+import 'package:MultitaskResearch/idRegex.dart';
+import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
 
-class LoginForm extends StatefulWidget {
+class QualtricsLoginForm extends StatefulWidget {
   final String id;
-  LoginForm({Key key, @required this.id}) : super(key: key);
+  QualtricsLoginForm({Key key, @required this.id}) : super(key: key);
 
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _QualtricsLoginFormState createState() => _QualtricsLoginFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
   final TextEditingController _idController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _id = "";
@@ -22,7 +23,7 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
   }
 
-  _LoginFormState() {
+  _QualtricsLoginFormState() {
     _idController.addListener(_idListen);
   }
 
@@ -32,13 +33,13 @@ class _LoginFormState extends State<LoginForm> {
     value = value.trim();
 
     // Validation regex
-    final RegExp sonaPattern = new RegExp(r'^U\d{8}$');
+    // final RegExp sonaPattern = new RegExp(r'^U\d{8}$');
     // final RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
 
     if (value == null || value.isEmpty) {
-      return "Please enter a Participant ID";
-    } else if (!sonaPattern.hasMatch(value)) {
-      return "Please enter a valid Participant ID";
+      return "Please enter a Qualtrics ID";
+    } else if (!IDRegex.qualtricsPattern.hasMatch(value)) {
+      return "Please enter a valid Qualtrics ID";
     }
     return null;
   }
@@ -122,62 +123,10 @@ class _LoginFormState extends State<LoginForm> {
                                         color: Color.fromRGBO(204, 0, 0, 1)),
                                   ),
                                 ),
-/*                                 Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    "1. Install an app on your phone",
-                                    textAlign: TextAlign.center,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontFamily: "OpenSans",
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 32,
-                                        color: Color.fromARGB(255, 45, 41, 38)),
-                                  ),
-                                ), */
-                                /*  Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    "2. Keep it for 2 weeks, for science!",
-                                    textAlign: TextAlign.center,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontFamily: "OpenSans",
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 32,
-                                        color: Color.fromARGB(255, 45, 41, 38)),
-                                  ),
-                                ), */
-                                /* Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    "3. We gratefully offer 30, for time and effort",
-                                    textAlign: TextAlign.center,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontFamily: "OpenSans",
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 32,
-                                        color: Color.fromARGB(255, 45, 41, 38)),
-                                  ),
-                                ), */
-/*                                 Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child: Text(
-                                    "Click the red button to begin.",
-                                    textAlign: TextAlign.center,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                        fontFamily: "OpenSans",
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 32,
-                                        color: Color.fromARGB(255, 45, 41, 38)),
-                                  ),
-                                ), */
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
-                                    "Please enter your Participant ID below",
+                                    "Please enter your Qualtrics ID below",
                                     textAlign: TextAlign.center,
                                     softWrap: true,
                                     style: TextStyle(

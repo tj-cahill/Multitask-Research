@@ -3,8 +3,7 @@ import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
 import 'package:MultitaskResearch/FocusTest/SquareAnimation.dart';
 import 'package:MultitaskResearch/FocusTest/SquareData.dart';
-import 'package:MultitaskResearch/FocusTest/end.dart';
-import 'package:MultitaskResearch/DebriefSite/emailForm.dart';
+import 'package:MultitaskResearch/DebriefSite/debriefForm.dart';
 
 class TestPage extends StatefulWidget {
   final String title;
@@ -68,7 +67,7 @@ class _TestPageState extends State<TestPage> {
   // random sequencing if necessary).
   void nextPhase() {
     Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => EmailForm(id: widget.id)));
+        MaterialPageRoute(builder: (context) => DebriefForm(id: widget.id)));
   }
 
   void navigateToNextPage(exportData) {

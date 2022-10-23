@@ -11,10 +11,8 @@ import 'package:MultitaskResearch/KEYS.dart';
 import 'package:MultitaskResearch/MultiTask/HomePage.dart';
 import 'package:MultitaskResearch/MultiTask/instruction.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
-import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
-import 'package:MultitaskResearch/OnboardingSite/loginForm.dart';
-import 'package:MultitaskResearch/DebriefSite/emailForm.dart';
-import 'package:MultitaskResearch/OnboardingSite/qualityPromptForm.dart';
+import 'package:MultitaskResearch/OnboardingSite/sonaLoginForm.dart';
+import 'package:MultitaskResearch/OnboardingSite/qualtricsLoginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
 import 'package:url_launcher/url_launcher.dart';
@@ -108,15 +106,21 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/onboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-                  body: LoginForm(
+                  body: SonaLoginForm(
                 id: routingData._queryParameters["id"],
               )));
-    case '/debrief':
+    case '/qonboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
-                  body: EmailForm(
+                  body: QualtricsLoginForm(
                 id: routingData._queryParameters["id"],
               )));
+/*     case '/debrief':
+      return MaterialPageRoute(
+          builder: (_) => Scaffold(
+                  body: DebriefForm(
+                id: routingData._queryParameters["id"],
+              ))); */
     case '/export':
       return MaterialPageRoute(
         builder: (_) => Scaffold(
