@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'package:MultitaskResearch/FocusTest/login.dart';
 import 'package:MultitaskResearch/KEYS.dart';
-import 'package:MultitaskResearch/MultiTask/homePage.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
 import 'package:MultitaskResearch/OnboardingSite/sonaLoginForm.dart';
 import 'package:MultitaskResearch/OnboardingSite/qualtricsLoginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 Future<void> main() async {
   if (Firebase.apps.isEmpty) {
@@ -65,8 +64,6 @@ extension StringExtension on String {
 Route<dynamic> generateRoute(RouteSettings settings) {
   var routingData = settings.name.getRoutingData;
   switch (routingData.route) {
-    case '/home':
-      return MaterialPageRoute(builder: (_) => MyHomePage());
     case '/multitask':
       return MaterialPageRoute(
           builder: (_) => MultiTaskLogin(
@@ -77,24 +74,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           builder: (_) => TestFocusLogin(
                 id: routingData._queryParameters["id"],
               ));
-    // return MaterialPageRoute(
-    //   builder: (_) => TestPage(
-    //     title: "Test",
-    //     id: routingData._queryParameters["id"],
-    //     practiceTestRes: [],
-    //   ),
-    // builder: (_) => InstructionPage(
-    //   title: "Test",
-    //   totalLevel: 3,
-    //   content: Container(),
-    //   id: routingData._queryParameters["id"],
-    // ),
-    // );
-    // case '/instruction':
-    //   return MaterialPageRoute(
-    //       builder: (_) => Instruction(
-    //             id: routingData._queryParameters["id"],
-    //           ));
     case '/onboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
@@ -113,11 +92,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
                   body: DebriefForm(
                 id: routingData._queryParameters["id"],
               ))); */
-    case '/export':
+/*     case '/export':
       return MaterialPageRoute(
         builder: (_) => Scaffold(
           body: Center(
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () async {
                 const url =
                     'https://us-central1-common-research.cloudfunctions.net/csvJsonReport';
@@ -131,7 +110,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
             ),
           ),
         ),
-      );
+      ); */
     default:
       return MaterialPageRoute(
           builder: (_) => Scaffold(
