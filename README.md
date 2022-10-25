@@ -39,7 +39,7 @@ Once deployed, the test and export interfaces can be accessed from the following
 | /#/export | Data Export |
 
 ## Data Export
-The results of both tests are stored in [Firestore](https://firebase.google.com/docs/firestore). Whenever a test is completed, the most recent study data in the project database is also automatically exported to a CSV file [stored](https://firebase.google.com/docs/storage) in the `/reports/` folder of the Firebase project. (**Note: Automatic exports can be resource intensive with large samples. If you expect to run tests frequently, it may be more economical to disable the automatic export functions and use the legacy manual reporting functions described below.**)
+The results of both tests are stored in [Firestore](https://firebase.google.com/docs/firestore). Whenever a test is completed, the most recent study data in the project database is also automatically exported to a CSV file [stored](https://firebase.google.com/docs/storage) in the `/reports/` folder of the Firebase project. (**Note: Automatic exports can be resource intensive with large samples. If you expect to run tests frequently, it may be more economical to disable the automatic export functions and use legacy manual reporting functions.**)
 
 <!-- 
 ### Legacy Export
