@@ -150,24 +150,27 @@ class _DebriefFormState extends State<DebriefForm> {
                         decoration: new InputDecoration(labelText: 'email'),
                       ))),
               Padding(
-                  padding: EdgeInsets.only(top: 50, bottom: 50),
-                  child: ButtonTheme(
-                      minWidth: 300.0,
-                      height: 55.0,
-                      child: RaisedButton(
-                        child: Text("Next",
-                            textAlign: TextAlign.center,
-                            softWrap: true,
-                            style: TextStyle(
-                              fontFamily: "OpenSans",
-                              fontWeight: FontWeight.w700,
-                              fontSize: 28,
-                              color: Colors.white,
-                            )),
-                        onPressed: this.buttonClicked,
-                        color: Color.fromRGBO(204, 0, 0, 1),
-                        splashColor: Color.fromRGBO(204, 0, 0, 1),
-                      )))
+                padding: EdgeInsets.only(top: 50, bottom: 50),
+                child: ElevatedButton(
+                    child: Text("Next",
+                        textAlign: TextAlign.center,
+                        softWrap: true,
+                        style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 28,
+                          color: Colors.white,
+                        )),
+                    onPressed: this.buttonClicked,
+                    style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(204, 0, 0, 1),
+                        onPrimary: Colors.white,
+                        minimumSize: Size(300.0, 55.0),
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(2))))),
+              )
             ],
           ));
 

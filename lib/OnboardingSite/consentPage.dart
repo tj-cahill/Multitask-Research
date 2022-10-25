@@ -224,10 +224,7 @@ class _ConsentPageState extends State<ConsentPage> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: 50, bottom: 80),
-                      child: ButtonTheme(
-                        minWidth: 300.0,
-                        height: 55.0,
-                        child: RaisedButton(
+                      child: ElevatedButton(
                           child: Text(
                             "Next",
                             textAlign: TextAlign.center,
@@ -240,10 +237,14 @@ class _ConsentPageState extends State<ConsentPage> {
                             ),
                           ),
                           onPressed: this.buttonClicked,
-                          color: Color.fromRGBO(204, 0, 0, 1),
-                          splashColor: Color.fromRGBO(204, 0, 0, 1),
-                        ),
-                      ),
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(204, 0, 0, 1),
+                              onPrimary: Colors.white,
+                              minimumSize: Size(300.0, 55.0),
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2))))),
                     ),
                   ])
             ],
@@ -448,10 +449,7 @@ class _ConsentPageState extends State<ConsentPage> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: 50, bottom: 80),
-                      child: ButtonTheme(
-                        minWidth: 300.0,
-                        height: 55.0,
-                        child: RaisedButton(
+                      child: ElevatedButton(
                           child: Text(
                             "Next",
                             textAlign: TextAlign.center,
@@ -464,10 +462,14 @@ class _ConsentPageState extends State<ConsentPage> {
                             ),
                           ),
                           onPressed: this.buttonClicked,
-                          color: Color.fromRGBO(204, 0, 0, 1),
-                          splashColor: Color.fromRGBO(204, 0, 0, 1),
-                        ),
-                      ),
+                          style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(204, 0, 0, 1),
+                              onPrimary: Colors.white,
+                              minimumSize: Size(300.0, 55.0),
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2))))),
                     ),
                   ])
             ],
