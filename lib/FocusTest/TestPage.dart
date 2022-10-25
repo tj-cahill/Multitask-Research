@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
-import 'package:MultitaskResearch/FocusTest/SquareAnimation.dart';
-import 'package:MultitaskResearch/FocusTest/SquareData.dart';
+import 'package:MultitaskResearch/FocusTest/squareAnimation.dart';
+import 'package:MultitaskResearch/FocusTest/squareData.dart';
 import 'package:MultitaskResearch/DebriefSite/debriefForm.dart';
 
 class TestPage extends StatefulWidget {

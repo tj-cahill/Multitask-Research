@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
+import 'package:MultitaskResearch/MultiTask/cueStimulus.dart';
 import 'package:MultitaskResearch/MultiTask/randomAlgo.dart';
 
 Future<List<CueStimulus>> loadData(isInstruction) async {

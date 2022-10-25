@@ -1,4 +1,4 @@
-import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
+import 'package:MultitaskResearch/MultiTask/cueStimulus.dart';
 
 class ListOfCueStimulus {
   final List<CueStimulus> list;

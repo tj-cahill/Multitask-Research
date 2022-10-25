@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:MultitaskResearch/FocusTest/login.dart';
 import 'package:MultitaskResearch/KEYS.dart';
-import 'package:MultitaskResearch/MultiTask/HomePage.dart';
+import 'package:MultitaskResearch/MultiTask/homePage.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
 import 'package:MultitaskResearch/OnboardingSite/sonaLoginForm.dart';
 import 'package:MultitaskResearch/OnboardingSite/qualtricsLoginForm.dart';

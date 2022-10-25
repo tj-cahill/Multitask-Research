@@ -1,6 +1,6 @@
 import 'dart:html';
 
-import 'package:MultitaskResearch/FocusTest/InstructionPage.dart';
+import 'package:MultitaskResearch/FocusTest/instructionPage.dart';
 import 'package:flutter/material.dart';
 
 class TestFocusLogin extends StatefulWidget {
