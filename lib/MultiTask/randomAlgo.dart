@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:MultitaskResearch/MultiTask/CueStimulus.dart';
+import 'package:MultitaskResearch/MultiTask/cueStimulus.dart';
 
 class RandomAlgorithm {
   static final List<String> vowels = ["a", "e", "i", "u"];

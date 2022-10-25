@@ -1,10 +1,9 @@
-import 'package:MultitaskResearch/FocusTest/SquareAnimation.dart';
-import 'package:MultitaskResearch/FocusTest/SquareData.dart';
-import 'package:MultitaskResearch/FocusTest/end.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
+import 'package:MultitaskResearch/FocusTest/squareAnimation.dart';
+import 'package:MultitaskResearch/FocusTest/squareData.dart';
+import 'package:MultitaskResearch/DebriefSite/debriefForm.dart';
 
 class TestPage extends StatefulWidget {
   final String title;
@@ -64,6 +63,13 @@ class _TestPageState extends State<TestPage> {
     }
   }
 
+  // Function that redirects to the subsequent phase (can be extended for
+  // random sequencing if necessary).
+  void nextPhase() {
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => DebriefForm(id: widget.id)));
+  }
+
   void navigateToNextPage(exportData) {
     if (currentLevel == data.length && widget.title == 'Practice Test') {
       Navigator.pushReplacement(
@@ -78,8 +84,9 @@ class _TestPageState extends State<TestPage> {
     }
 
     if (currentLevel == data.length && widget.title == 'Test') {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => End()));
+      nextPhase();
+      // Navigator.pushReplacement(
+      //     context, MaterialPageRoute(builder: (context) => End()));
     }
   }
 

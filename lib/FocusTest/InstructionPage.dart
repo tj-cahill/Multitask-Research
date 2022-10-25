@@ -1,9 +1,8 @@
-import 'package:MultitaskResearch/FocusTest/InstructionComponent.dart';
-import 'package:MultitaskResearch/FocusTest/OrderedSquares.dart';
-import 'package:MultitaskResearch/FocusTest/TestPage.dart';
+import 'package:MultitaskResearch/FocusTest/instructionComponent.dart';
+import 'package:MultitaskResearch/FocusTest/orderedSquares.dart';
+import 'package:MultitaskResearch/FocusTest/testPage.dart';
 import 'package:MultitaskResearch/FocusTest/button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class InstructionPage extends StatefulWidget {
   final String title;
