@@ -1,15 +1,7 @@
 import 'dart:async';
-import 'dart:html';
-import 'package:MultitaskResearch/FocusTest/InstructionPage.dart';
-import 'package:MultitaskResearch/FocusTest/OrderedSquares.dart';
-import 'package:MultitaskResearch/FocusTest/SquareAnimation.dart';
-import 'package:MultitaskResearch/FocusTest/TestPage.dart';
-import 'package:MultitaskResearch/FocusTest/instructionContent.dart';
 import 'package:MultitaskResearch/FocusTest/login.dart';
-import 'package:MultitaskResearch/FocusTest/square.dart';
 import 'package:MultitaskResearch/KEYS.dart';
 import 'package:MultitaskResearch/MultiTask/HomePage.dart';
-import 'package:MultitaskResearch/MultiTask/instruction.dart';
 import 'package:MultitaskResearch/MultiTask/login.dart';
 import 'package:MultitaskResearch/OnboardingSite/sonaLoginForm.dart';
 import 'package:MultitaskResearch/OnboardingSite/qualtricsLoginForm.dart';
