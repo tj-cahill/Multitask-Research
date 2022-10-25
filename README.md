@@ -41,10 +41,12 @@ Once deployed, the test and export interfaces can be accessed from the following
 ## Data Export
 The results of both tests are stored in [Firestore](https://firebase.google.com/docs/firestore). Whenever a test is completed, the most recent study data in the project database is also automatically exported to a CSV file [stored](https://firebase.google.com/docs/storage) in the `/reports/` folder of the Firebase project. (**Note: Automatic exports can be resource intensive with large samples. If you expect to run tests frequently, it may be more economical to disable the automatic export functions and use the legacy manual reporting functions described below.**)
 
+<!-- 
 ### Legacy Export
 * From the Google Cloud Functions panel, select the `autoReport_multitask` and `autoReport_testfocus` functions and remove their triggers
-* Manually trigger the `csvJsonExport` script by going to the `/#/export` route in a browser
+* Manually trigger the `csvJsonExport` script by going to the `/#/export` route in a browser 
 
+-->
 ## Credits
 This project is lead by Dr. James Cummings, Division of Emerging Media Studies, Boston University. The package was initially developed by [Beck](https://maoyizhou.com) and this fork was modified by [Tiernan Cahill](https://tiernancahill.com).
 
