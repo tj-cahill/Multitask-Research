@@ -111,8 +111,6 @@ List<CueStimulus> execuate() {
       countOfFreq3 = 0,
       countOfFreq4 = 0;
 
-  bool isCorrect = false;
-
   randomAlgorithm.config.forEach((element) {
     if (element.type == "LETTER") {
       countOfLetter += 1;

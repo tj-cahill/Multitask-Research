@@ -21,7 +21,6 @@ class _ConsentPageState extends State<ConsentPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     Container consentBlock(String id) {
       // Two alternate versions of the consent text

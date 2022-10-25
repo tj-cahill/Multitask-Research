@@ -78,7 +78,6 @@ class _DebriefFormState extends State<DebriefForm> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     Container debriefBlock(String id) {
 // Two alternate versions of the debrief text (one without email input)
