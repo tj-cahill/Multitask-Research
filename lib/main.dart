@@ -1,11 +1,12 @@
 import 'dart:async';
-import 'package:MultitaskResearch/FocusTest/login.dart';
-import 'package:MultitaskResearch/KEYS.dart';
-import 'package:MultitaskResearch/MultiTask/login.dart';
-import 'package:MultitaskResearch/OnboardingSite/sonaLoginForm.dart';
-import 'package:MultitaskResearch/OnboardingSite/qualtricsLoginForm.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase/firebase.dart' as Firebase;
+import 'KEYS.dart';
+import 'focus_test/login.dart';
+import 'multitask/login.dart';
+import 'onboarding_site/sona_login_form.dart';
+import 'onboarding_site/qualtrics_login_form.dart';
+
 // import 'package:url_launcher/url_launcher.dart';
 
 Future<void> main() async {

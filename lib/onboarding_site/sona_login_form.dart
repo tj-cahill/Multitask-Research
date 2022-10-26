@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/idRegex.dart';
-import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
+import '../id_regex.dart';
+import 'consent_page.dart';
 
-class QualtricsLoginForm extends StatefulWidget {
+class SonaLoginForm extends StatefulWidget {
   final String id;
-  QualtricsLoginForm({Key key, @required this.id}) : super(key: key);
+  SonaLoginForm({Key key, @required this.id}) : super(key: key);
 
   @override
-  _QualtricsLoginFormState createState() => _QualtricsLoginFormState();
+  _SonaLoginFormState createState() => _SonaLoginFormState();
 }
 
-class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
+class _SonaLoginFormState extends State<SonaLoginForm> {
   final TextEditingController _idController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _id = "";
@@ -23,7 +23,7 @@ class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
     super.dispose();
   }
 
-  _QualtricsLoginFormState() {
+  _SonaLoginFormState() {
     _idController.addListener(_idListen);
   }
 
@@ -37,9 +37,9 @@ class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
     // final RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
 
     if (value == null || value.isEmpty) {
-      return "Please enter a Qualtrics ID";
-    } else if (!IDRegex.qualtricsPattern.hasMatch(value)) {
-      return "Please enter a valid Qualtrics ID";
+      return "Please enter a SONA ID";
+    } else if (!IDRegex.sonaPattern.hasMatch(value)) {
+      return "Please enter a valid SONA ID";
     }
     return null;
   }
@@ -125,7 +125,7 @@ class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
-                                    "Please enter your Qualtrics ID below",
+                                    "Please enter your SONA ID below",
                                     textAlign: TextAlign.center,
                                     softWrap: true,
                                     style: TextStyle(

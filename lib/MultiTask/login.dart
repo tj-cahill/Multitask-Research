@@ -1,7 +1,8 @@
-import 'dart:html';
+// ignore_for_file: avoid_web_libraries_in_flutter
 
-import 'package:MultitaskResearch/MultiTask/instruction.dart';
+import 'dart:html';
 import 'package:flutter/material.dart';
+import '../multitask/instruction.dart';
 
 class MultiTaskLogin extends StatefulWidget {
   final String id;

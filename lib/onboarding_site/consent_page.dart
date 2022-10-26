@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/idRegex.dart';
-import 'package:MultitaskResearch/OnboardingSite/viewportCheck.dart';
+import '../id_regex.dart';
+import 'viewport_check.dart';
 
 class ConsentPage extends StatefulWidget {
   final String id;

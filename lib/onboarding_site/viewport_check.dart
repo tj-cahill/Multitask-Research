@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'dart:html';
-import 'package:MultitaskResearch/OnboardingSite/qualityPromptForm.dart';
+import 'package:flutter/material.dart';
+import 'quality_prompt_form.dart';
 
 class ViewportCheckPage extends StatefulWidget {
   final String id;
@@ -47,9 +49,9 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
           ],
         ),
       );
-    } else {
-      return new Container();
     }
+
+    return new Container();
   }
 
   @override

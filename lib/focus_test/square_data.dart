@@ -1,4 +1,4 @@
-import 'package:MultitaskResearch/FocusTest/generationAlgorithm.dart';
+import 'generation_algorithm.dart';
 
 TestFocusRandomAlgorithm algorithm = new TestFocusRandomAlgorithm();
 

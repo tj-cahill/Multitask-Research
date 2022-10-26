@@ -1,6 +1,5 @@
 import 'dart:math';
-
-import 'package:MultitaskResearch/FocusTest/square.dart';
+import 'square.dart';
 
 class TestFocusRandomAlgorithm {
   final random = new Random();

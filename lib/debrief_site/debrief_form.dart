@@ -1,8 +1,8 @@
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/idRegex.dart';
-import 'package:MultitaskResearch/DebriefSite/end.dart';
+import '../id_regex.dart';
+import 'end.dart';
 
 class DebriefForm extends StatefulWidget {
   final String id;

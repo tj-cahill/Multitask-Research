@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/idRegex.dart';
-import 'package:MultitaskResearch/OnboardingSite/consentPage.dart';
+import '../id_regex.dart';
+import 'consent_page.dart';
 
-class SonaLoginForm extends StatefulWidget {
+class QualtricsLoginForm extends StatefulWidget {
   final String id;
-  SonaLoginForm({Key key, @required this.id}) : super(key: key);
+  QualtricsLoginForm({Key key, @required this.id}) : super(key: key);
 
   @override
-  _SonaLoginFormState createState() => _SonaLoginFormState();
+  _QualtricsLoginFormState createState() => _QualtricsLoginFormState();
 }
 
-class _SonaLoginFormState extends State<SonaLoginForm> {
+class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
   final TextEditingController _idController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   String _id = "";
@@ -23,7 +23,7 @@ class _SonaLoginFormState extends State<SonaLoginForm> {
     super.dispose();
   }
 
-  _SonaLoginFormState() {
+  _QualtricsLoginFormState() {
     _idController.addListener(_idListen);
   }
 
@@ -37,9 +37,9 @@ class _SonaLoginFormState extends State<SonaLoginForm> {
     // final RegExp qualtricsPattern = new RegExp(r'^\d{7}$|^\d{1},\d{3},\d{3}$');
 
     if (value == null || value.isEmpty) {
-      return "Please enter a SONA ID";
-    } else if (!IDRegex.sonaPattern.hasMatch(value)) {
-      return "Please enter a valid SONA ID";
+      return "Please enter a Qualtrics ID";
+    } else if (!IDRegex.qualtricsPattern.hasMatch(value)) {
+      return "Please enter a valid Qualtrics ID";
     }
     return null;
   }
@@ -125,7 +125,7 @@ class _SonaLoginFormState extends State<SonaLoginForm> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
-                                    "Please enter your SONA ID below",
+                                    "Please enter your Qualtrics ID below",
                                     textAlign: TextAlign.center,
                                     softWrap: true,
                                     style: TextStyle(

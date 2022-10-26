@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:MultitaskResearch/MultiTask/instruction.dart';
-import 'package:MultitaskResearch/DebriefSite/ejection.dart';
+import '../multitask/instruction.dart';
+import '../debrief_site/ejection.dart';
 
 /* QAResponse
  *

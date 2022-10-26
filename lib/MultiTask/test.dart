@@ -5,9 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:firebase/firestore.dart' as fs;
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:MultitaskResearch/FocusTest/instructionPage.dart';
-import 'package:MultitaskResearch/MultiTask/cueStimulus.dart';
-import 'package:MultitaskResearch/MultiTask/randomAlgo.dart';
+import '../focus_test/instruction_page.dart';
+import '../multitask/cue_stimulus.dart';
+import '../multitask/random_algorithm.dart';
 
 Future<List<CueStimulus>> loadData() async {
   return execuate();

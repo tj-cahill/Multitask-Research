@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
-import 'package:MultitaskResearch/MultiTask/listOfCueStimulus.dart';
-import 'package:MultitaskResearch/MultiTask/cueStimulus.dart';
-import 'package:MultitaskResearch/MultiTask/instructionDescription.dart';
-import 'package:MultitaskResearch/MultiTask/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../multitask/list_cue_stimulus.dart';
+import '../multitask/cue_stimulus.dart';
+import '../multitask/instruction_description.dart';
+import '../multitask/test.dart';
 
 Future<String> _loadGameDataAsset() async {
   return await rootBundle.loadString('assets/config.json');
