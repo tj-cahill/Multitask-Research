@@ -30,7 +30,7 @@ class _InstructionPageState extends State<InstructionPage> {
     InstructionComponent(
       upperContent: OrderedSquares(),
       instruction:
-          "Your task in this test is to concentrate on the red rectangles while ignoring the blue rectangles.",
+          "We will now move on to the second test. Your task in this test is to concentrate on the red rectangles while ignoring the blue rectangles.",
     ),
     InstructionComponent(
       upperContent: Container(
