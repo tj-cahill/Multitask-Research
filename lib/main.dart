@@ -65,7 +65,7 @@ extension StringExtension on String {
 Route<dynamic> generateRoute(RouteSettings settings) {
   var routingData = settings.name.getRoutingData;
   switch (routingData.route) {
-    case '/multitask':
+/*     case '/multitask':
       return MaterialPageRoute(
           builder: (_) => MultiTaskLogin(
                 id: routingData._queryParameters["id"],
@@ -74,7 +74,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (_) => TestFocusLogin(
                 id: routingData._queryParameters["id"],
-              ));
+              )); */
     case '/onboarding':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
