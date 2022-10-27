@@ -81,7 +81,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
                   body: SonaLoginForm(
                 id: routingData._queryParameters["id"],
               )));
-    case '/qonboarding':
+    case '/mmtexer1022qual':
       return MaterialPageRoute(
           builder: (_) => Scaffold(
                   body: QualtricsLoginForm(
