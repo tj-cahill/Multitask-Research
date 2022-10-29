@@ -33,7 +33,7 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 0),
                 child: Text(
-                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be required in one uninterrupted session.",
+                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
@@ -51,7 +51,7 @@ class _ConsentPageState extends State<ConsentPage> {
                   softWrap: true,
                   style: TextStyle(
                       fontFamily: "OpenSans",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: Color.fromARGB(255, 45, 41, 38)),
                 ),
@@ -209,12 +209,12 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
-                  "If you (a) have completed the earlier \"Media Usage Habits\" study, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
+                  "\nIf you (a) have completed the earlier \"Media Usage Habits\" study, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
                       fontFamily: "OpenSans",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: Color.fromARGB(255, 45, 41, 38)),
                 ),
@@ -258,7 +258,7 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 0),
                 child: Text(
-                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be required in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$20 Amazon gift card.",
+                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$20 Amazon gift card.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
@@ -276,7 +276,7 @@ class _ConsentPageState extends State<ConsentPage> {
                   softWrap: true,
                   style: TextStyle(
                       fontFamily: "OpenSans",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: Color.fromARGB(255, 45, 41, 38)),
                 ),
@@ -434,12 +434,12 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
-                  "If you (a) have completed the earlier Qualtrics study, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
+                  "\nIf you (a) have completed the earlier Qualtrics study, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
                       fontFamily: "OpenSans",
-                      fontWeight: FontWeight.normal,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: Color.fromARGB(255, 45, 41, 38)),
                 ),
