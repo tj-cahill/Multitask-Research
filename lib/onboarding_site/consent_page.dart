@@ -258,7 +258,7 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 0),
                 child: Text(
-                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$20 Amazon gift card.",
+                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$10 Amazon gift card.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
