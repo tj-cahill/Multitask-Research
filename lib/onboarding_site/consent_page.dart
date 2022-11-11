@@ -45,15 +45,30 @@ class _ConsentPageState extends State<ConsentPage> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Before you begin, please read through the participation requirements below. If you cannot meet these requirements at this time, please stop and return to this page later. Note: failure to follow these instructions will void your eligibility for any compensation for your participation.",
+                child: RichText(
+                  text: TextSpan(children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          "Before you begin, please read through the participation requirements below. If you cannot meet these requirements at this time, please stop and return to this page later. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    ),
+                    TextSpan(
+                      text:
+                          "Note: failure to follow these instructions will void your eligibility for any compensation for your participation. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    )
+                  ]),
                   textAlign: TextAlign.left,
                   softWrap: true,
-                  style: TextStyle(
-                      fontFamily: "OpenSans",
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Color.fromARGB(255, 45, 41, 38)),
                 ),
               ),
               Padding(
@@ -257,28 +272,66 @@ class _ConsentPageState extends State<ConsentPage> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(top: 0),
-                child: Text(
-                  "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$10 Amazon gift card.",
+                child: RichText(
+                  text: TextSpan(children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          "In this study you will be asked to complete two series of attention-testing exercises. The study should take approximately 15 minutes and must be completed in one uninterrupted session. In exchange for successfully completing this study, you will be offered a \$10 Amazon gift card. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.normal,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    ),
+                    TextSpan(
+                      text:
+                          "You MUST complete the study all the way through to the final page in order for your responses to be saved. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    ),
+                    TextSpan(
+                        text:
+                            "If your responses are not saved, you will not be eligible to receive a gift card.",
+                        style: TextStyle(
+                            fontFamily: "OpenSans",
+                            fontWeight: FontWeight.w700,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 45, 41, 38)))
+                  ]),
                   textAlign: TextAlign.left,
                   softWrap: true,
-                  style: TextStyle(
-                      fontFamily: "OpenSans",
-                      fontWeight: FontWeight.normal,
-                      fontSize: 18,
-                      color: Color.fromARGB(255, 45, 41, 38)),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text(
-                  "Before you begin, please read through the participation requirements below. If you cannot meet these requirements at this time, please stop and return to this page later. Note: failure to follow these instructions will void your eligibility for any compensation for your participation.",
+                child: RichText(
+                  text: TextSpan(children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          "\nBefore you begin, please read through the participation requirements below. If you cannot meet these requirements at this time, please stop and return to this page later. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    ),
+                    TextSpan(
+                      text:
+                          "Note: failure to follow these instructions will void your eligibility for any compensation for your participation. ",
+                      style: TextStyle(
+                          fontFamily: "OpenSans",
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.italic,
+                          fontSize: 18,
+                          color: Color.fromARGB(255, 45, 41, 38)),
+                    )
+                  ]),
                   textAlign: TextAlign.left,
                   softWrap: true,
-                  style: TextStyle(
-                      fontFamily: "OpenSans",
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Color.fromARGB(255, 45, 41, 38)),
                 ),
               ),
               Padding(

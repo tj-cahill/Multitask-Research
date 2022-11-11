@@ -39,7 +39,7 @@ class _QAFormState extends State<QAForm> {
     TextStyle defaultStyle = new TextStyle(
         fontFamily: "OpenSans",
         fontWeight: FontWeight.w700,
-        fontSize: 32,
+        fontSize: 18,
         color: Color.fromARGB(255, 45, 41, 38));
 
     return Scaffold(
@@ -58,7 +58,7 @@ class _QAFormState extends State<QAForm> {
                         "Boston University",
                         style: TextStyle(
                             fontFamily: "OpenSans",
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.normal,
                             fontSize: 18,
                             color: Colors.white),
                       ))
@@ -73,14 +73,16 @@ class _QAFormState extends State<QAForm> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                          width: width * 0.8,
+                          padding: EdgeInsets.only(left: 80, right: 80),
+                          width: width * 1,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(top: 0),
                                 child: Text(
                                   "On the next pages you will complete two different exercises to test your attentional abilities.",
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.left,
                                   softWrap: true,
                                   style: defaultStyle,
                                 ),
@@ -89,7 +91,7 @@ class _QAFormState extends State<QAForm> {
                                 padding: EdgeInsets.only(top: 10),
                                 child: Text(
                                   "We care about the quality of our data. In order for us to get the most accurate measures of your abilities, it is important that you focus on the exercises, uninterrupted, for the entirety of the study session.",
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.left,
                                   softWrap: true,
                                   style: defaultStyle,
                                 ),
@@ -98,7 +100,7 @@ class _QAFormState extends State<QAForm> {
                                 padding: EdgeInsets.only(top: 10),
                                 child: Text(
                                   "Do you commit to committing your attention to the upcoming exercises?",
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.left,
                                   softWrap: true,
                                   style: defaultStyle,
                                 ),
