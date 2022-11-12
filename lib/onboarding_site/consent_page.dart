@@ -15,24 +15,29 @@ class ConsentPage extends StatefulWidget {
 class _ConsentPageState extends State<ConsentPage> {
   final fs.Firestore firestore = fb.firestore();
 
-  void buttonClicked() {
+  Future<fs.DocumentReference> createRecord() async {
     // Create a participant record to show that the participant consents and has
     // proceeded to testing
     Map<String, dynamic> record = {
       "id": widget.id,
-      "start_time": DateTime.now().toIso8601String()
+      "start_time": DateTime.now().toIso8601String(),
+      "qa_passed": null
     };
 
-    firestore
-        .collection('participant_start')
-        .add(record)
-        .then((value) => print(value))
-        .catchError((onError) => print(onError));
+    final fs.DocumentReference recordRef =
+        firestore.collection('participant_start').doc();
+    await recordRef.set(record);
+    return recordRef;
+  }
+
+  void buttonClicked() {
+    final Future<fs.DocumentReference> startRecord = createRecord();
 
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => ViewportCheckPage(id: widget.id)));
+            builder: (context) =>
+                ViewportCheckPage(id: widget.id, record: startRecord)));
   }
 
   @override

@@ -1,12 +1,15 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
 
 import 'dart:html';
+import 'package:firebase/firestore.dart' as fs;
 import 'package:flutter/material.dart';
 import 'quality_prompt_form.dart';
 
 class ViewportCheckPage extends StatefulWidget {
   final String id;
-  ViewportCheckPage({Key key, @required this.id}) : super(key: key);
+  final Future<fs.DocumentReference> record;
+  ViewportCheckPage({Key key, @required this.id, this.record})
+      : super(key: key);
 
   @override
   _ViewportCheckState createState() => _ViewportCheckState();
@@ -18,8 +21,11 @@ class _ViewportCheckState extends State<ViewportCheckPage> {
   bool _viewportOK;
 
   void nextPhase() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => QAForm(id: widget.id)));
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                QAForm(id: widget.id, record: widget.record)));
   }
 
   void goFullScreen() {

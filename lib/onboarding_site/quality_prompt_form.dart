@@ -1,3 +1,5 @@
+import 'package:firebase/firebase.dart' as fb;
+import 'package:firebase/firestore.dart' as fs;
 import 'package:flutter/material.dart';
 import '../multitask/instruction.dart';
 import '../debrief_site/ejection.dart';
@@ -13,7 +15,8 @@ enum QAResponse { yes, no, maybe }
 
 class QAForm extends StatefulWidget {
   final String id;
-  QAForm({Key key, @required this.id}) : super(key: key);
+  final Future<fs.DocumentReference> record;
+  QAForm({Key key, @required this.id, this.record}) : super(key: key);
 
   @override
   _QAFormState createState() => _QAFormState();
@@ -21,12 +24,24 @@ class QAForm extends StatefulWidget {
 
 class _QAFormState extends State<QAForm> {
   QAResponse _response;
+  final fs.Firestore firestore = fb.firestore();
+
+  void updateRecord(bool promptPassed) async {
+    final fs.DocumentReference recordRef = await widget.record;
+    final update = <String, dynamic>{"qa_passed": promptPassed};
+
+    recordRef.set(update, fs.SetOptions(merge: true)).then(
+        (value) => print("Successful update"),
+        onError: (e) => print("Error updating document: $e"));
+  }
 
   void buttonClicked() {
     if (_response == QAResponse.yes) {
+      updateRecord(true);
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => Instruction(id: widget.id)));
     } else if (_response == QAResponse.no || _response == QAResponse.maybe) {
+      updateRecord(false);
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => Ejection(id: widget.id)));
     }
