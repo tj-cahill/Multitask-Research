@@ -118,7 +118,7 @@ class _DebriefFormState extends State<DebriefForm> {
               Padding(
                   padding: EdgeInsets.only(top: 10),
                   child: Text(
-                    "If you would like to be contacted regarding a \$10 Amazon Gift Card as compensation for your participation, please provide your personal email address below. The provided email address will be used to transfer an electronic gift card in exchange for your successful participation in this study.",
+                    "If you would like to be contacted regarding a \$20 Amazon Gift Card as compensation for your participation, please provide your personal email address below. The provided email address will be used to transfer an electronic gift card in exchange for your successful participation in this study.",
                     textAlign: TextAlign.center,
                     softWrap: true,
                     style: TextStyle(
