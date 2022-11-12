@@ -1,3 +1,5 @@
+import 'package:firebase/firebase.dart' as fb;
+import 'package:firebase/firestore.dart' as fs;
 import 'package:flutter/material.dart';
 import '../id_regex.dart';
 import 'viewport_check.dart';
@@ -11,7 +13,22 @@ class ConsentPage extends StatefulWidget {
 }
 
 class _ConsentPageState extends State<ConsentPage> {
+  final fs.Firestore firestore = fb.firestore();
+
   void buttonClicked() {
+    // Create a participant record to show that the participant consents and has
+    // proceeded to testing
+    Map<String, dynamic> record = {
+      "id": widget.id,
+      "start_time": DateTime.now().toIso8601String()
+    };
+
+    firestore
+        .collection('participant_start')
+        .add(record)
+        .then((value) => print(value))
+        .catchError((onError) => print(onError));
+
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(
