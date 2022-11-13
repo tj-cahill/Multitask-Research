@@ -14,5 +14,6 @@ jobs:
       with:
         flutter-version: '2.10.4'
         channel: 'stable'
+    - name: write secrets
     - run: flutter pub get
     - run: flutter build web
