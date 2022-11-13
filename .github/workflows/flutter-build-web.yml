@@ -5,14 +5,15 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - run: echo $DART_KEYS >> lib/KEYS.dart
-      shell: bash
-      env:
-        DART_KEYS : ${{secrets.KEYS}}
+
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
       with:
         flutter-version: '2.10.4'
         channel: 'stable'
     - run: flutter pub get
+    - run: echo $DART_KEYS >> lib/KEYS.dart
+      shell: bash
+      env:
+        DART_KEYS : ${{secrets.KEYS}}
     - run: flutter build web
