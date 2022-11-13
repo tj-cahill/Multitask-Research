@@ -3,11 +3,18 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
+    - name: write secrets
+      run: echo $DART_KEYS >> KEYS.dart
+      shell: bash
+      env:
+        DART_KEYS : ${{secrets.KEYS}}
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
       with:
         flutter-version: '2.10.4'
         channel: 'stable'
+    - name: write secrets
     - run: flutter pub get
     - run: flutter build web
