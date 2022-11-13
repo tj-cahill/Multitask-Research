@@ -1,6 +1,9 @@
 
+name: Deploy to Firebase on commit
 on:
-  workflow_dispatch:
+  push:
+    branches:
+    - main
 jobs:
   deploy:
     name: Deploy to Firebase
@@ -29,7 +32,7 @@ jobs:
         repoToken: "${{ secrets.GITHUB_TOKEN }}"
         firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
         projectId: common-research
-        channelId: deploy-test
+        channelId: live
     - name: Delete keyfile
       run: rm lib/KEYS.dart
       shell: bash
