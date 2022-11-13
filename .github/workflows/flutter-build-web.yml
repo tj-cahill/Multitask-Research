@@ -3,7 +3,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
+    - run: echo $DART_KEYS >> KEYS.dart
+      shell: bash
+      env:
+        DART_KEYS : ${{secrets.KEYS}}
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
       with:
