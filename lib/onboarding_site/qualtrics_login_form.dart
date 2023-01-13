@@ -125,7 +125,7 @@ class _QualtricsLoginFormState extends State<QualtricsLoginForm> {
                                 Padding(
                                   padding: EdgeInsets.only(top: 50),
                                   child: Text(
-                                    "Please enter your Qualtrics ID below",
+                                    "Please enter your Qualtrics ID below. NOTE: Before you press 'Next', be sure you have clicked 'Submit' in the Qualtrics study window.",
                                     textAlign: TextAlign.center,
                                     softWrap: true,
                                     style: TextStyle(

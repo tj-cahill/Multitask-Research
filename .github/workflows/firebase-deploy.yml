@@ -1,0 +1,38 @@
+
+name: Deploy to Firebase on commit
+on:
+  push:
+    branches:
+    - main
+jobs:
+  deploy:
+    name: Deploy to Firebase
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Setup Flutter environment
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.10.4'
+        channel: 'stable'
+    - name: Load dependencies
+      run: flutter pub get
+    - name: Load secret keys
+      run: echo $DART_KEYS >> lib/KEYS.dart
+      shell: bash
+      env:
+        DART_KEYS : ${{secrets.KEYS}}
+    - name: Build web app
+      run: flutter build web
+    - name: Deploy to Firebase Hosting
+      uses: FirebaseExtended/action-hosting-deploy@v0
+      with:
+        repoToken: "${{ secrets.GITHUB_TOKEN }}"
+        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+        projectId: common-research
+        channelId: live
+    - name: Delete keyfile
+      run: rm lib/KEYS.dart
+      shell: bash
