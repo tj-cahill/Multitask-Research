@@ -76,6 +76,7 @@ exports.autoReport_multitask = functions.firestore.document('multitask/{doc}').o
     const bucketName = 'common-research.appspot.com';
     const fileName = `reports/report_multitask.csv`;
     const tempFilePath = path.join(os.tmpdir(), fileName);
+    const exportFilePath = path.join("gs://", bucketName, '/', fileName);
 
     const storage = new Storage();
     const myBucket = storage.bucket(bucketName);
@@ -95,6 +96,8 @@ exports.autoReport_multitask = functions.firestore.document('multitask/{doc}').o
         }).then(() => {
             return myBucket.upload(tempFilePath, { destination: fileName })
         }).catch(err => console.log(err))
+
+    return exportFilePath;
 });
 
 exports.autoReport_testfocus = functions.firestore.document('testfocus/{doc}').onWrite((change, context) => {
@@ -102,6 +105,7 @@ exports.autoReport_testfocus = functions.firestore.document('testfocus/{doc}').o
     const bucketName = 'common-research.appspot.com';
     const fileName = 'reports/report_testfocus.csv';
     const tempFilePath = path.join(os.tmpdir(), fileName);
+    const exportFilePath = path.join("gs://", bucketName, '/', fileName);
 
     const storage = new Storage();
     const myBucket = storage.bucket(bucketName);
@@ -122,6 +126,8 @@ exports.autoReport_testfocus = functions.firestore.document('testfocus/{doc}').o
         }).then(() => {
             return myBucket.upload(tempFilePath, { destination: fileName })
         }).catch(err => console.log(err))
+
+    return exportFilePath;
 });
 
 // exports.downloadReport = functions.https.onRequest((request, response) => {
