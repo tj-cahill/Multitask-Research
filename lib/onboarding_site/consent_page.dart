@@ -470,7 +470,7 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
-                  "Additionally, if you did not fully complete the previous study on Qualtrics, you are not eligible to complete or receive compensation for this study.",
+                  "Additionally, if you did not fully complete the previous survey on Qualtrics, you are not eligible to complete or receive compensation for this study.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
@@ -509,7 +509,7 @@ class _ConsentPageState extends State<ConsentPage> {
               Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: Text(
-                  "\nIf you (a) have completed the earlier Qualtrics study, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
+                  "\nIf you (a) have completed the earlier Qualtrics survey, (b) are in a quiet location, (c) are reading this page on a laptop or desktop computer, and (d) have set the study window to full-screen mode, you may now proceed to the attention-testing exercises. To do so, click the \"Next\" button below.",
                   textAlign: TextAlign.left,
                   softWrap: true,
                   style: TextStyle(
