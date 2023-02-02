@@ -19,6 +19,7 @@ exports.csvJsonReport_multitask = functions.https.onRequest((request, response) 
     const myBucket = storage.bucket(bucketName);
 
     db.collection('multitask')
+        .orderBy('test_time')
         .get()
         .then(querySnapshot => {
             const dataList = []
@@ -48,6 +49,7 @@ exports.csvJsonReport_testfocus = functions.https.onRequest((request, response) 
     const myBucket = storage.bucket(bucketName);
 
     db.collection('testfocus')
+        .orderBy('test_time')
         .get()
         .then(querySnapshot => {
             const dataList = []
@@ -82,6 +84,7 @@ exports.autoReport_multitask = functions.firestore.document('multitask/{doc}').o
     const myBucket = storage.bucket(bucketName);
 
     db.collection('multitask')
+        .orderBy('test_time')
         .get()
         .then(querySnapshot => {
             const dataList = []
@@ -111,6 +114,7 @@ exports.autoReport_testfocus = functions.firestore.document('testfocus/{doc}').o
     const myBucket = storage.bucket(bucketName);
 
     db.collection('testfocus')
+        .orderBy('test_time')
         .get()
         .then(querySnapshot => {
             const dataList = []
